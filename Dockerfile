@@ -2,9 +2,8 @@ FROM node:lts-alpine as build
 RUN mkdir /captain
 WORKDIR /captain
 COPY . /captain
-RUN npm install
 RUN npm install -g @angular/cli
-RUN ng build --prod
+CMD ["ng","build"]
 
 FROM amazon/aws-cli
 RUN mkdir /front
