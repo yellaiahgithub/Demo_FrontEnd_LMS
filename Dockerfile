@@ -1,9 +1,9 @@
 FROM node:lts-alpine as build
 RUN mkdir /captain
 WORKDIR /captain
+RUN npm install
 COPY . /captain
 RUN npm install -g @angular/cli
-RUN npm install
 RUN ng build --prod
 
 
