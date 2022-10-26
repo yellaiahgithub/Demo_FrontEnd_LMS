@@ -3,6 +3,7 @@ RUN mkdir /captain
 WORKDIR /captain
 COPY . /captain
 RUN npm install -g @angular/cli
+RUN npm install 
 RUN ng build --prod
 
 
