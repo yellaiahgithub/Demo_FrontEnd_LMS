@@ -4,7 +4,7 @@ WORKDIR /captain
 COPY . /captain
 RUN npm install --force
 RUN npm install -g @angular/cli
-RUN ng build --prod
+RUN ng build --configuration=production
 
 
 FROM amazon/aws-cli
