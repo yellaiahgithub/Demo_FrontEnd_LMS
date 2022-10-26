@@ -2,8 +2,8 @@ FROM node:14-alpine as build
 RUN mkdir /captain
 WORKDIR /captain
 COPY . /captain
-RUN npm install -g @angular/cli
 RUN npm install --force
+RUN npm install -g @angular/cli
 RUN ng build --prod
 
 
