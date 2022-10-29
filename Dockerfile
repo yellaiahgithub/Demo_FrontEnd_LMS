@@ -2,8 +2,8 @@ FROM node:14-alpine as build
 RUN mkdir /captain
 WORKDIR /captain
 COPY . /captain
-RUN npm install -g @angular/cli@9.1.0
-CMD ["ng","build"]
+RUN npm install
+RUN npm run build
 
 
 FROM amazon/aws-cli
