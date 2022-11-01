@@ -5,7 +5,7 @@ COPY . /captain
 RUN npm install
 COPY . /captain
 RUN npm install -g @angular/cli
-CMD ["ng","build"]
+RUN npm run build
 
 FROM amazon/aws-cli
 RUN mkdir /front
