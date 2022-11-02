@@ -1,13 +1,15 @@
-FROM node:14-alpine as build
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-COPY . /usr/src/app
+FROM node:lts-alpine as build
+RUN mkdir /captain
+WORKDIR /captain
+COPY . /captain
 RUN npm install
-RUN npm run build
+COPY . .
+RUN npm install -g @angular/cli
+RUN ng build --prod
 
 FROM amazon/aws-cli
 RUN mkdir /front
 WORKDIR /front
-COPY --from=build /usr/src/app/build /front
-RUN aws s3 cp /front s3://yellaiah-1996 --recursive
+COPY --from=build /captain/public /front
+RUN aws s3 cp /front s3://dev.konamars.com --recursive
 EXPOSE 3000
