@@ -3,9 +3,7 @@ RUN mkdir /captain
 WORKDIR /captain
 COPY . /captain
 RUN npm install
-COPY . .
-RUN npm install -g @angular/cli
-RUN ng build --prod
+RUN npm run build
 
 FROM amazon/aws-cli
 RUN mkdir /front
