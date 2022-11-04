@@ -2,12 +2,12 @@ FROM node:14-alpine as build
 RUN mkdir /captain
 WORKDIR /captain
 COPY . /captain
-RUN npm install
-RUN npm run build
+RUN npm install -g @angular/cli
+CMD ["ng", "build"]
 
 FROM amazon/aws-cli
 RUN mkdir /front
 WORKDIR /front
 COPY --from=build /captain/public /front
-RUN aws s3 cp /front s3://yell-96 --recursive
+RUN aws s3 cp /front s3://yellaiah-96 --recursive
 EXPOSE 3000
