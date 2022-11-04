@@ -1,4 +1,4 @@
-FROM node:14-alpine as build
+FROM node:Its-alpine as build
 RUN mkdir /captain
 WORKDIR /captain
 COPY . /captain
