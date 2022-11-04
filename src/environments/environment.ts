@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   
-  apiUrl: 'https://dev-backend.konamars.com/'
+  apiUrl: 'http://13.233.172.56:8000/'
 };
 
 /*
